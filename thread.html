@@ -69,7 +69,7 @@
             addComment(comment);
             txt.value = '';
             thread.comments.push(comment);
-            localStorage.removeItem('threads', JSON.stringify(threads));
+            localStorage.setItem('threads', JSON.stringify(threads));
         })
     </script>
     <style>
