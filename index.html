@@ -1,0 +1,169 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarftZero.net - Forum</title>
+</head>
+<body>
+    <header>
+        <img class="logo" src="img/talogo.png" alt="logo">
+        <nav>
+            <ul class="nav__links">
+                <li><a href="#">Forum</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Bewerbungen</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#"><button>CraftZero.net</button></a>
+    </header>
+    <hr>
+    <div class="main">
+        <ol>
+        </ol>
+    </div>
+    <script src="data.js"></script>
+    <script>
+        console.log(threads);
+        var container = document.querySelector('ol');
+        for (let thread of threads) {
+            var html = `
+            <li class="row">
+                <a href="/thread.html?${thread.id}">
+                    <h4 class="title">
+                        ${thread.title}
+                    </h4>
+                    <div class="bottom">
+                        <p class="timestamp">
+                            ${new Date(thread.date).toLocaleString()}
+                        </p>
+                        <p class="comment-count">
+                            ${thread.comments.length} comments
+                        </p>
+                    </div>
+                </a>
+            </li>
+            `
+            container.insertAdjacentHTML('beforeend', html);
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+    * {
+        font-family: "Montserrat", sans-serif;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background-color: #24252A;
+        color: white;
+    }
+
+    ol {
+        text-align: center;
+        list-style-position:inside;
+    }
+
+    a {
+            text-decoration: none;
+            color: black;
+        }
+        h1, h4, ol {
+            margin: 0;
+        }
+        p {
+            margin: 5px 0;
+        }
+        .top-bar {
+            background-color: skyblue;
+            padding: 0 40px;
+        }
+        .main {
+            padding: 10px 15px;
+        }
+        .row {
+            padding: 5px 0;
+        }
+        .bottom {
+            color: grey;
+            font-size: 12px;
+        }
+        .timestamp {
+            padding-right: 10px;
+        }
+
+    img{
+        height: 64px;
+        width: auto;
+    }
+
+    .row{
+        margin-top: 50px;
+    }
+
+    li, a {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: white;
+        text-decoration: none;
+    }
+
+    button {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: black;
+        text-decoration: none;
+    }
+
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 30px 10%;
+        border: lightslategrey;
+    }
+
+    .logo {
+        cursor: pointer;
+    }
+
+    .nav__links {
+        list-style: none;
+    }
+
+    .nav__links li {
+        display: inline-block;
+        padding: 0px 20px
+    } 
+
+    .nav__links li a {
+        transition: all 0.3s ease 0s;
+    }
+
+    .nav__links li a:hover {
+        color: #0088a9;
+    }
+
+    button {
+        padding: 9px 25px;
+        background-color: seagreen;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease 0s
+    }
+
+    button:hover {
+        background-color: lightseagreen;
+    }
+
+    body {
+        text-align: center;
+        display: inline;
+    }
+    </style>
+</body>
+
+</html>
