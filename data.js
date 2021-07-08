@@ -97,9 +97,9 @@ var defaultThreads = [
 ]
 
 var threads = defaultThreads
-if (localStorage && localStorage.removeItem('threads')) {
-    threads = JSON.parse(localStorage.removeItem('threads'));
+if (localStorage && localStorage.getItem('threads')) {
+    threads = JSON.parse(localStorage.getItem('threads'));
 } else {
     threads = defaultThreads;
-    localStorage.removeItem('threads', JSON.stringify(defaultThreads));
+    localStorage.setItem('threads', JSON.stringify(defaultThreads));
 }
