@@ -1,6 +1,6 @@
 <body>
     <div class="top-bar">
-        <img class="logo" src="img/talogo.png" alt="logo">
+        <a href="index.html"><img class="logo" src="img/talogo.png" alt="logo"></a>
         <h1>
             CraftZero.net
         </h1>
@@ -9,7 +9,9 @@
     <div class="main">
         <div class="header">
         </div>
-        <textarea></textarea>
+        <input placeholder="name" id="name"></input>
+        <section style="padding: 10px;"></section>
+        <textarea placeholder="comment"></textarea>
         <button>add comment</button>
         <div class="comments">
         </div>
@@ -46,17 +48,22 @@
 
         const btn = document.querySelector('button');
         btn.addEventListener('click', function() {
+            var name = document.querySelector('input').value;
             var txt = document.querySelector('textarea');
             var comment = {
                 content: txt.value,
                 date: Date.now(),
-                author: 'Aaron'
+                author: name.value,
             }
             addComment(comment);
             txt.value = '';
             thread.comments.push(comment);
             localStorage.setItem('threads', JSON.stringify(threads));
         })
+
+
+        console.log(name)
+        
     </script>
     <style>
         * {
@@ -87,6 +94,11 @@
         textarea {
             width: 80%;
             height: 80px;
+        }
+
+        #name{
+            height: 35px;
+            width: 1070px;
         }
 
         button {
